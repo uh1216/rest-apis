@@ -1,8 +1,11 @@
 package common.restapis.domain.member;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
+
+import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter

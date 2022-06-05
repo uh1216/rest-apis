@@ -1,6 +1,5 @@
-package common.restapis.repository.member;
+package common.restapis.domain.member;
 
-import common.restapis.domain.member.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

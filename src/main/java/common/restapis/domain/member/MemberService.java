@@ -1,4 +1,4 @@
-package common.restapis.service.member;
+package common.restapis.domain.member;
 
 import common.restapis.domain.member.Member;
 

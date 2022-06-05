@@ -1,7 +1,7 @@
-package common.restapis.controller;
+package common.restapis.domain.member;
 
 import common.restapis.domain.member.Member;
-import common.restapis.service.member.MemberService;
+import common.restapis.domain.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +19,11 @@ public class MemberController {
         memberService.join(member);
         log.info("saved member={}", member.toString());
         return member;
+    }
+
+    @GetMapping("/findMember")
+    public Member findMember(@RequestParam Long id) {
+        return memberService.findMember(id);
     }
 
 }
