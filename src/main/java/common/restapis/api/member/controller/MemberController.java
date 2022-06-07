@@ -1,7 +1,7 @@
-package common.restapis.domain.member;
+package common.restapis.api.member.controller;
 
-import common.restapis.domain.member.Member;
-import common.restapis.domain.member.MemberService;
+import common.restapis.domain.member.service.MemberService;
+import common.restapis.domain.member.domain.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

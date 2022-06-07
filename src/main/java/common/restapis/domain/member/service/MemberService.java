@@ -1,6 +1,6 @@
-package common.restapis.domain.member;
+package common.restapis.domain.member.service;
 
-import common.restapis.domain.member.Member;
+import common.restapis.domain.member.domain.Member;
 
 public interface MemberService {
 

@@ -1,5 +1,7 @@
-package common.restapis.domain.member;
+package common.restapis.domain.member.service;
 
+import common.restapis.domain.member.domain.Member;
+import common.restapis.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

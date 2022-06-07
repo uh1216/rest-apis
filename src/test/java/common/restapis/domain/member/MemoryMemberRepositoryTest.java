@@ -1,5 +1,7 @@
 package common.restapis.domain.member;
 
+import common.restapis.domain.member.domain.Member;
+import common.restapis.domain.member.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
