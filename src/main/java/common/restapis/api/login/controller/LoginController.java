@@ -5,10 +5,7 @@ import common.restapis.domain.member.domain.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,12 +13,11 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/login")
 public class LoginController {
 
     private final LoginService loginService;
 
-    @PostMapping
+    @PostMapping("/login")
     public Member login(@ModelAttribute Member member, BindingResult bindingResult, HttpServletRequest request) { //ToDo bindingResult 값 틀렸을 때 다시 입력 값 넘겨주기(검증 완성 후)
         Member memberLogin = loginService.login(member.getUserId(), member.getPassword());
         if (memberLogin == null) {
@@ -37,5 +33,13 @@ public class LoginController {
         return memberLogin;
     }
 
+    @GetMapping("/logout")
+    public void logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+            log.info("로그아웃 되었습니다.");
+        }
+    }
 
 }
