@@ -1,11 +1,11 @@
 package common.restapis.domain.member.domain;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -13,8 +13,15 @@ import javax.validation.constraints.NotEmpty;
 public class Member {
 
     private Long id;
-    private String userName; //ToDo 검증 만들기
+
+    @NotBlank(message = "이름을 입력해주세요")
+    private String userName;
+
+    @NotBlank(message = "아이디를 입력해주세요")
     private String userId;
+
+    @Size(min = 5, max = 10, message = "비밀번호는 5자 이상 10자 이하입니다.")
+    @NotBlank
     private String password;
 
     public Member(String userName, String userId, String password) {

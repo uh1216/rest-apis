@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class HomeController {
 
     @GetMapping("/")
-    public void home(
+    public Member home(
             @SessionAttribute(name = "Login-Member", required = false) Member loginMember, Model model) {
 
         if (loginMember == null) {
             log.info("로그인 되지 않았습니다.");
-            return;
+            return null;
         }
 
         log.info("로그인 되었습니다.");
         log.info("안녕하세요 {}님",loginMember.getUserName());
+        return loginMember;
     }
 }
