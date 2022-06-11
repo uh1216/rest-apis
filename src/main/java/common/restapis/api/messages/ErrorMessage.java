@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public class ErrorMessage {
+public class ErrorMessage implements Message{
 
     private HttpStatus httpStatus;
     private String message;
