@@ -20,9 +20,12 @@ public class Member {
     @NotBlank(message = "아이디를 입력해주세요")
     private String userId;
 
-    @Size(min = 5, max = 10, message = "비밀번호는 5자 이상 10자 이하입니다.")
-    @NotBlank
+    @Size(min = 5, max = 10, message = "비밀번호는 5자 이상 10자 이하입니다")
+    @NotBlank(message = "비밀번호를 입력해주세요")
     private String password;
+
+    public Member() {
+    }
 
     public Member(String userName, String userId, String password) {
         this.userName = userName;
