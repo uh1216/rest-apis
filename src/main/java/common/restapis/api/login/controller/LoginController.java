@@ -1,5 +1,6 @@
 package common.restapis.api.login.controller;
 
+import common.restapis.api.SessionConst;
 import common.restapis.api.login.service.LoginService;
 import common.restapis.api.messages.SuccessMessage;
 import common.restapis.domain.member.domain.Member;
@@ -31,7 +32,7 @@ public class LoginController {
         log.info("로그인 성공");
 
         HttpSession session = request.getSession();
-        session.setAttribute("Login-Member", memberLogin);
+        session.setAttribute(SessionConst.LOGIN_MEMBER, memberLogin);
 
         return new SuccessMessage(HttpStatus.OK, "로그인 성공", memberLogin);
     }
@@ -39,12 +40,9 @@ public class LoginController {
     @GetMapping("/logout")
     public SuccessMessage logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        if (session != null) {
-            session.invalidate();
-            log.info("로그아웃 되었습니다.");
-            return new SuccessMessage(HttpStatus.OK, "로그아웃 되었습니다.");
-        }
-        return null;
+        session.invalidate();
+        log.info("로그아웃 되었습니다.");
+        return new SuccessMessage(HttpStatus.OK, "로그아웃 되었습니다.");
     }
 
 }
