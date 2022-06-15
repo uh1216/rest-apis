@@ -1,4 +1,4 @@
-package common.restapis.api;
+package common.restapis.api.session;
 
 public interface SessionConst {
 

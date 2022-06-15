@@ -1,6 +1,6 @@
 package common.restapis.api.interceptor;
 
-import common.restapis.api.SessionConst;
+import common.restapis.api.session.SessionConst;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 

@@ -1,8 +1,8 @@
 package common.restapis.api;
 
-import common.restapis.api.messages.ErrorMessage;
 import common.restapis.api.messages.Message;
 import common.restapis.api.messages.SuccessMessage;
+import common.restapis.api.session.SessionConst;
 import common.restapis.domain.member.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

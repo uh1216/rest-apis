@@ -1,6 +1,6 @@
 package common.restapis.api.login.controller;
 
-import common.restapis.api.SessionConst;
+import common.restapis.api.session.SessionConst;
 import common.restapis.api.login.service.LoginService;
 import common.restapis.api.messages.SuccessMessage;
 import common.restapis.domain.member.domain.Member;
