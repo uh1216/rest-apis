@@ -1,5 +1,6 @@
-package common.restapis.api.files;
+package common.restapis.domain.files;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+@Slf4j
 @Component
 public class FileStore {
 
@@ -20,6 +22,7 @@ public class FileStore {
 
     public String storeFile(MultipartFile multipartFile) throws IOException {
         if (multipartFile.isEmpty()) {
+            log.info("error={}", "파일 없음");
             return null;
         }
 
