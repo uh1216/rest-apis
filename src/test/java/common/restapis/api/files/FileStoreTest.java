@@ -28,14 +28,4 @@ class FileStoreTest {
         //then
         assertThat(fullPath).isEqualTo(filePath + "image.png");
     }
-
-    @Test
-    void storeFile() throws IOException {
-        //given
-        MockMultipartFile mockMultipartFile = new MockMultipartFile("file", "image.png", MediaType.MULTIPART_FORM_DATA_VALUE, new FileInputStream("/Users/dnd/Desktop/image.png"));
-        //when
-        String storeFileName = fileStore.storeFile(mockMultipartFile);
-        //then
-        assertThat(storeFileName).isNotEqualTo("image.png");
-    }
 }

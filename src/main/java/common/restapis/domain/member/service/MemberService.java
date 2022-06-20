@@ -4,7 +4,7 @@ import common.restapis.domain.member.domain.Member;
 
 public interface MemberService {
 
-    Long join(Member member);
+    String join(Member member);
 
-    Member findMember(Long id);
+    Member findMember(String userId);
 }
