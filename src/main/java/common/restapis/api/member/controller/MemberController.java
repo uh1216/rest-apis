@@ -27,9 +27,14 @@ public class MemberController {
             throw new RuntimeException(bindingResult.getFieldError().getDefaultMessage());
         }
 
-        memberService.join(member);
+        String joinMessage = memberService.join(member);
         log.info("saved member={}", member.toString());
-        return new SuccessMessage(HttpStatus.OK,"회원가입 성공!", member);
+        return new SuccessMessage(HttpStatus.OK, joinMessage, member);
     }
+
+//    @GetMapping("/findMember") //TODO 나중에 아이디 찾기 구현 예정
+//    public Member findMember(@RequestParam String userId) {
+//        return memberService.findMember(userId);
+//    }
 
 }

@@ -12,13 +12,21 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
     @Override
-    public Long join(Member member) {
+    public String join(Member member) {
+        isUserIdDuplicate(member);
         memberRepository.save(member);
-        return member.getId();
+        return "회원가입 성공!";
+
+    }
+
+    private void isUserIdDuplicate(Member member) {
+        if (memberRepository.findByUserId(member.getUserId()).isPresent()) {
+            throw new RuntimeException("이미 존재하는 아이디입니다.");
+        }
     }
 
     @Override
-    public Member findMember(Long id) {
-        return memberRepository.findById(id);
+    public Member findMember(String userId) {
+        return memberRepository.findByUserId(userId).orElse(null);
     }
 }
