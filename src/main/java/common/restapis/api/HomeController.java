@@ -3,6 +3,7 @@ package common.restapis.api;
 import common.restapis.api.messages.Message;
 import common.restapis.api.messages.SuccessMessage;
 import common.restapis.api.session.SessionConst;
+import common.restapis.domain.member.domain.LoginMember;
 import common.restapis.domain.member.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class HomeController {
 
     @GetMapping("/")
-    public Message home(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
+    public Message home(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) LoginMember loginMember, Model model) {
         log.info("안녕하세요 {}님",loginMember.getUserName());
         return new SuccessMessage(HttpStatus.OK, String.format("안녕하세요 %s님", loginMember.getUserName()));
     }

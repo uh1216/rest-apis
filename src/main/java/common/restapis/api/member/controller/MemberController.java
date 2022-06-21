@@ -32,9 +32,4 @@ public class MemberController {
         return new SuccessMessage(HttpStatus.OK,"회원가입 성공!", member);
     }
 
-    @GetMapping("/findMember")
-    public Member findMember(@RequestParam Long id) {
-        return memberService.findMember(id);
-    }
-
 }

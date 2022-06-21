@@ -3,6 +3,7 @@ package common.restapis.api.login.controller;
 import common.restapis.api.session.SessionConst;
 import common.restapis.api.login.service.LoginService;
 import common.restapis.api.messages.SuccessMessage;
+import common.restapis.domain.member.domain.LoginMember;
 import common.restapis.domain.member.domain.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,8 +24,8 @@ public class LoginController {
 
     @PostMapping("/login") //ToDo bindingResult 값 틀렸을 때 다시 입력 값 넘겨주기(검증 완성 후)
     public SuccessMessage login(@RequestBody Member member, BindingResult bindingResult, HttpServletRequest request) {
-        Member memberLogin = loginService.login(member.getUserId(), member.getPassword());
-        if (memberLogin == null) {
+        LoginMember loginMember = loginService.login(member.getUserId(), member.getPassword());
+        if (loginMember == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
             return null;
         }
@@ -32,9 +33,9 @@ public class LoginController {
         log.info("로그인 성공");
 
         HttpSession session = request.getSession();
-        session.setAttribute(SessionConst.LOGIN_MEMBER, memberLogin);
+        session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
-        return new SuccessMessage(HttpStatus.OK, "로그인 성공", memberLogin);
+        return new SuccessMessage(HttpStatus.OK, "로그인 성공", loginMember);
     }
 
     @GetMapping("/logout")

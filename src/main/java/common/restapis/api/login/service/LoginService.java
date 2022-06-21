@@ -1,5 +1,6 @@
 package common.restapis.api.login.service;
 
+import common.restapis.domain.member.domain.LoginMember;
 import common.restapis.domain.member.domain.Member;
 import common.restapis.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,9 +12,14 @@ public class LoginService {
 
     private final MemberRepository memberRepository;
 
-    public Member login(String userId, String password) { //ToDo 로그인시 Member객체 그대로를 반환하지 말고 로그인용 객체를 만들어야 한다.
-        return memberRepository.findByUserId(userId)
+    public LoginMember login(String userId, String password) {
+        Member member = memberRepository.findByUserId(userId)
                 .filter(m -> m.getPassword().equals(password))
                 .orElse(null);
+
+        LoginMember loginMember = new LoginMember();
+        loginMember.setUserName(member.getUserName());
+
+        return loginMember;
     }
 }
