@@ -17,6 +17,10 @@ public class LoginService {
                 .filter(m -> m.getPassword().equals(password))
                 .orElse(null);
 
+        if (member == null) {
+            throw new RuntimeException("아이디 또는 비밀번호가 맞지 않습니다.");
+        }
+
         LoginMember loginMember = new LoginMember();
         loginMember.setUserName(member.getUserName());
 
