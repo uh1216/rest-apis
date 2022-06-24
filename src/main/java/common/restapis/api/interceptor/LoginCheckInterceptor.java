@@ -18,7 +18,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession(false);
 
         if (session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null) {
-            throw new RuntimeException("로그 되지 않은 사용자");
+            throw new RuntimeException("로그인 되지 않은 사용자");
         }
         return true;
     }

@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("http://sanghabank.com:8080")
-                .allowCredentials(true); //ToDo CORS처리 (나중에 프론트 주소로 바꿔야함)
+                .allowCredentials(true);
     }
 
     @Override
