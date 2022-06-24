@@ -11,7 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("*"); //ToDo CORS처리 (나중에 프론트 주소로 바꿔야함)
+        registry.addMapping("/**").allowedOrigins("https://api.evan.com"); //ToDo CORS처리 (나중에 프론트 주소로 바꿔야함)
     }
 
     @Override
