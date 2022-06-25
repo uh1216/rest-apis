@@ -11,9 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("http://sanghabank.com:8080")
-                .allowCredentials(true);
+        registry.addMapping("/**").allowedOrigins("*");
     }
 
     @Override
